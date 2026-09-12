@@ -28,16 +28,19 @@ En esta aplicación tendremos muchos ficheros diferentes (para empezar `datos.js
  
 Al crear el proyecto con Vite indicaremos que vamos a usar sólo Javascript (Vanilla). Le podéis llamar BatoiBooks. Una vez generado el proyecto y arrancado el servidor de desarrollo cambiaremos el código para adaptarlo a nuestro proyecto como hicimos con el _ejercicio 1.3-fraseVite_:
 
-- eliminamos ficheros de los logos (`javascript.svg` y `public/vite.svg`)
-- copiamos a `public/` nuestro logo (`logoBatoi.png`)
+- en la carpeta raíz del proyecto creamos una carpeta `test/` para los test
+- eliminamos los ficheros de los logos que hay en `src/assets/` (`.svg` y `.png`)
+- copiamos a `src/assets/` nuestro logo (`logoBatoi.png`)
 - eliminamos el fichero `counter.js`
-- crearemos una carpeta `src/` donde meteremos todos los ficheros js que vayamos creando (sólo `main.js` se quedará en el directorio raíz del proyecto)
+- creamos dentro de `src/` un fichero `functions.js` para incluir y exportar las funciones. Por ahora como no hay funciones su contenido será sólo `export { }` para que no de error al importar
 - creamos una carpeta `src/services` y copiamos allí el fichero `datos.js`
-- creamos dentro de `src/` nuestro fichero `functions.js` para incluir y exportar las funciones. Por ahora como no hay funciones su contenido será sólo `export { }`
+- modificamos `main.js` para que:
+  - importe sólo el `style.css`, nuestro logo y nuestro fichero `functions.js`
+  - renderice sólo un DIV que contenga nuestro logo, debajo el título _BatoiBooks_ y debajo un párrafo con el testo "Abre la consola para ver el resultado"
 
-En el `index.html` cambiaremos el título a _**BatoiBooks miNombre**_ (ej. _BatoiBooks Juan_).
- 
-En el `main.js` cambiaremos su contenido ya que no queremos renderizar lo que trae de ejemplo sino sólo una cabecera con nuestro logo y el título de la aplicación y un texto que diga que abras la consola para ver su funcionamiento. El resultado será algo como:
+En el `index.html` cambiaremos el título a _**BatoiBooks miNombre**_ (ej. _BatoiBooks Juan_). El resultado será algo como:
+
+![Proyecto vacío](./src/assets/imgEnunciado/proyectoVacio.png)
  
 ## Test
 Para testear nuestra aplicación usaremos **Vitest** (recordad instalarlo como dependencia de desarrollo). Los test los tenéis en el fichero `main.test.js` que debéis copiar a una carpeta llamada `test/` dentro de nuestro proyecto.
