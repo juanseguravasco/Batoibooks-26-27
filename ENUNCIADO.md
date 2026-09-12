@@ -1,4 +1,11 @@
-# Introducción
+# BatoiBooks
+- [BatoiBooks](#batoibooks)
+  - [1 - Introducción](#1---introducción)
+    - [Creación del proyecto](#creación-del-proyecto)
+    - [Test](#test)
+
+
+## 1 - Introducción
 
 Vamos a hacer una aplicación para vender libros de texto y apuntes entre los estudiantes del CIP FP Batoi. Las tablas con las que trabajaremos son:
 
@@ -19,7 +26,7 @@ Vamos a hacer una aplicación para vender libros de texto y apuntes entre los es
   - _comments_: comentarios
   - _soldDate_: fecha de venta del libro, en formato YYYY-MM-DD. Si aún no está vendido este campo estará en blanco
 
-## Creación del proyecto
+### Creación del proyecto
 Este proyecto lo iremos desarrollando a lo largo de la primera evaluación y también lo trabajaréis en el módulo de **DAW** (para desplegarlo) y **DWES** (para hacer la autenticación y las ventas, pero se hará al final).
  
 De momento los datos con los que trabaja la aplicación los tenemos en el fichero `datos.js` en una variable llamada **data**. Más adelante haremos peticiones a una API ficticia que montaremos con json-server y por último lo integraremos con una API que haréis en DWES para dejar la aplicación acabada.
@@ -42,5 +49,5 @@ En el `index.html` cambiaremos el título a _**BatoiBooks miNombre**_ (ej. _Bato
 
 ![Proyecto vacío](./src/assets/imgEnunciado/proyectoVacio.png)
  
-## Test
+### Test
 Para testear nuestra aplicación usaremos **Vitest** (recordad instalarlo como dependencia de desarrollo). Los test los tenéis en el fichero `main.test.js` que debéis copiar a una carpeta llamada `test/` dentro de nuestro proyecto.
