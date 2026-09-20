@@ -3,7 +3,9 @@
   - [1 - Introducción](#1---introducción)
     - [Creación del proyecto](#creación-del-proyecto)
     - [Test](#test)
-  - [2 - Arrays](#2---arrays)
+  - [PRÓXIMA PRÁCTICA: Arrays](#próxima-práctica-arrays)
+    - [Tests](#tests)
+    - [Restricciones de diseño](#restricciones-de-diseño)
     - [Auditoría](#auditoría)
 
 
@@ -54,7 +56,8 @@ En el `index.html` cambiaremos el título a _**BatoiBooks miNombre**_ (ej. _Bato
 ### Test
 Para testear nuestra aplicación usaremos **Vitest** (recordad instalarlo como dependencia de desarrollo). Los test los tenéis en el fichero `main.test.js` que debéis copiar a una carpeta llamada `test/` dentro de nuestro proyecto.
 
-## 2 - Arrays
+## PRÓXIMA PRÁCTICA: Arrays
+
 Esta primera parte de la aplicación la desarrollaremos en la rama '**2-arrays**'. Aquí crearemos las principales funciones para trabajar con nuestros datos (recuerda que por ahora los tenemos en el fichero `datos.js` en una variable llamada _data_). En esta práctica haremos las funciones para trabajar con libros, usuarios y módulos.
 
 Recuerda que tenemos el código en ficheros JS distintos:
@@ -74,7 +77,9 @@ Recuerda que tenemos el código en ficheros JS distintos:
   - Si subimos todos los precios un porcentaje, ¿cuál sería el nuevo array de libros?
   - Funciones equivalentes a buscar un libro pero para buscar un usuario (por id, por posición, por nick) y un módulo (por código)
 
-Por ejemplo a la primera función podríamos llamarla _**getBookById**_. Recibiría como parámetros el array de libros y una id y devolvería el libro buscado:
+Deberás realizar por tanto al menos 14 funciones, que deben llamarse exactamente: `getBookById`, `getBookIndexById`, `getUserById`, `getUserIndexById`, `getUserByNickName`, `getModuleByCode`, `booksFromUser`, `booksFromModule`, `booksCheeperThan`, `booksWithStatus`, `booksOfTypeNotes`, `bookExists`, `booksNotSold`, `incrementPriceOfbooks`. Si no coinciden los nombres, aunque la función haga lo mismo, no contará como resuelta para la corrección.
+
+Por ejemplo la primera función se llama _**getBookById**_. Recibiría como parámetros el array de libros y una id y devolvería el libro buscado:
 
 ```typescript
 getBookById(books: array, bookId: number) : object
@@ -82,6 +87,20 @@ getBookById(books: array, bookId: number) : object
 
 NOTA: ¿Qué debería hacer esta función si no existe un libro con la _id_ que nos han pasado?
 
+En el `main.js` pondremos el código para:
+
+- importar el fichero con las funciones
+- importar el fichero con los datos
+- mostrar por consola:
+  - todos los libros del usuario 4
+  - todos los libros del módulo 5021 que están en buen estado ("good")
+- incrementar un 10% el precio de los libros y mostrarlos por consola con el nuevo precio
+
+El resultado debe ser algo como:
+
+![Resultado esperado](./src/assets/imgEnunciado/2-resultado.png)
+
+### Tests
 Antes de escribir cada función deberíamos escribir los tests que debe pasar la misma: la idea es que el test sea tu forma de decidir qué debe pasar, no una confirmación a posteriori. Puedes hacerlo con ayuda de la IA. Por ejemplo creamos el fichero `functions.test.js` dentro de la carpeta de test donde programamos los tests, que para esta función en concreto podría ser:
 
 ```javascript
@@ -100,33 +119,22 @@ describe('function getBookById', () => {
  });
 
  it('getBookById 22 devuelve un error', () => {
-   expect(() => functions.getBookById(books, 22)).toThrowError()
+   expect(() => functions.getBookById(books, 22)).toThrow()
  });
 })
 ```
 
 Partiendo de este test añade un _describe_ para cada una de tus funciones donde pongas los tests que debería pasar la función. Ve ejecutando `npm run test` antes de escribir el código de cada función (para ver que no pasa el test) y una vez escrito el código (para ver que lo pasa).
 
-**Restricción de diseño**: no puedes usar ningún bucle _for_ ni _while_. Todo debe resolverse con programación funcional (_map_, _filter_, _reduce_, _find_...). No es un capricho: en código que trabaja con colecciones, las funciones de array son más declarativas, más fáciles de encadenar y más fáciles de leer para otra persona —o para una IA— que un bucle imperativo.
+### Restricciones de diseño
 
-Ninguna función debe modificar el array original. Si necesitas transformar datos (como al subir los precios), devuelve un array nuevo. 
-
-En el `main.js` pondremos el código para:
-
-- importar el fichero con las funciones
-- importar el fichero con los datos
-- mostrar por consola:
-  - todos los libros del usuario 4
-  - todos los libros del módulo 5021 que están en buen estado ("good")
-- incrementar un 10% el precio de los libros y mostrarlos de nuevo por consola
-
-El resultado debe ser algo como:
-
-![Resultado esperado](./src/assets/imgEnunciado/2-resultado.png)
+- No puedes usar ningún bucle _for_ ni _while_. Todo debe resolverse con programación funcional (_map_, _filter_, _reduce_, _find_...). No es un capricho: en código que trabaja con colecciones, las funciones de array son más declarativas, más fáciles de encadenar y más fáciles de leer para otra persona —o para una IA— que un bucle imperativo.
+- Ninguna función debe modificar el array original. Si necesitas transformar datos (como al subir los precios), devuelve un array nuevo. 
+- Nunca hay que _hardcodear_ nada!!!.
 
 ### Auditoría
 
-En la raíz del proyecto crea un fichero llamado `AUDITORIA.md` donde expliques por qué estarían mal la siguiente función y escríbela correctamente:
+En la raíz del proyecto crea un fichero llamado `AUDITORIA.md` donde expliques por qué estaría mal la siguiente función y escríbela correctamente:
 
 ```javascript
 function booksNotSold(books) {
@@ -138,5 +146,9 @@ function booksNotSold(books) {
   }
  return result
 }
+```
 
-RECUERDA: seguir haciendo todas las buenas prácticas que se indicaban en el ejercicio anterior. Y nunca hay que hardcodear nada!!!.
+Escribe también en ese fichero una variante de la función `incrementPriceOfbooks` que cambie el array original en vez de devolver un array nuevo. Explica por qué es mejor la primera versión.
+
+RECUERDA: seguir haciendo todas las buenas prácticas que se indicaban en el ejercicio anterior.
+
