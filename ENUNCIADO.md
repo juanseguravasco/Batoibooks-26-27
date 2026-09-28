@@ -57,7 +57,6 @@ En el `index.html` cambiaremos el título a _**BatoiBooks miNombre**_ (ej. _Bato
 Para testear nuestra aplicación usaremos **Vitest** (recordad instalarlo como dependencia de desarrollo). Los test los tenéis en el fichero `main.test.js` que debéis copiar a una carpeta llamada `test/` dentro de nuestro proyecto.
 
 ## PRÓXIMA PRÁCTICA: Arrays
-
 Esta primera parte de la aplicación la desarrollaremos en la rama '**2-arrays**'. Aquí crearemos las principales funciones para trabajar con nuestros datos (recuerda que por ahora los tenemos en el fichero `datos.js` en una variable llamada _data_). En esta práctica haremos las funciones para trabajar con libros, usuarios y módulos.
 
 Recuerda que tenemos el código en ficheros JS distintos:
@@ -77,7 +76,7 @@ Recuerda que tenemos el código en ficheros JS distintos:
   - Si subimos todos los precios un porcentaje, ¿cuál sería el nuevo array de libros?
   - Funciones equivalentes a buscar un libro pero para buscar un usuario (por id, por posición, por nick) y un módulo (por código)
 
-Deberás realizar por tanto al menos 14 funciones, que deben llamarse exactamente: `getBookById`, `getBookIndexById`, `getUserById`, `getUserIndexById`, `getUserByNickName`, `getModuleByCode`, `booksFromUser`, `booksFromModule`, `booksCheeperThan`, `booksWithStatus`, `booksOfTypeNotes`, `bookExists`, `booksNotSold`, `incrementPriceOfbooks`. Si no coinciden los nombres, aunque la función haga lo mismo, no contará como resuelta para la corrección.
+Deberás realizar al menos 15 funciones para esto, que deben llamarse exactamente: `getBookById`, `getBookIndexById`, `getUserById`, `getUserIndexById`, `getUserByNickName`, `getModuleByCode`, `booksFromUser`, `booksFromModule`, `booksCheeperThan`, `booksWithStatus`, `averagePriceOfBooks`, `booksOfTypeNotes`, `bookExists`, `booksNotSold`, `incrementPriceOfBooks`. Si no coinciden los nombres, aunque la función haga lo mismo, no contará como resuelta para la corrección. Para asegurar que los nombres son correctos, puedes copiar a tu carpeta de tests el fichero `contrato.test.js` y ejecutarlo con `npm run test`. Si no da errores, los nombres son correctos.
 
 Por ejemplo la primera función se llama _**getBookById**_. Recibiría como parámetros el array de libros y una id y devolvería el libro buscado:
 
@@ -101,7 +100,7 @@ El resultado debe ser algo como:
 ![Resultado esperado](./src/assets/imgEnunciado/2-resultado.png)
 
 ### Tests
-Antes de escribir cada función deberíamos escribir los tests que debe pasar la misma: la idea es que el test sea tu forma de decidir qué debe pasar, no una confirmación a posteriori. Puedes hacerlo con ayuda de la IA. Por ejemplo creamos el fichero `functions.test.js` dentro de la carpeta de test donde programamos los tests, que para esta función en concreto podría ser:
+Antes de escribir cada función deberíamos escribir los tests que debe pasar la misma: la idea es que el test sea tu forma de decidir qué debe pasar, no una confirmación a posteriori. Puedes hacerlo con ayuda de la IA. Por ejemplo creamos el fichero `functions.test.js` dentro de la carpeta de test donde programamos los tests, que para la función `getBookById` podría ser:
 
 ```javascript
 import { describe, it, expect } from 'vitest'
@@ -148,7 +147,7 @@ function booksNotSold(books) {
 }
 ```
 
-Escribe también en ese fichero una variante de la función `incrementPriceOfbooks` que cambie el array original en vez de devolver un array nuevo. Explica por qué es mejor la primera versión.
+Escribe también en ese fichero una variante de la función `incrementPriceOfBooks` que cambie el array original en vez de devolver un array nuevo. Explica por qué es mejor la primera versión.
 
 RECUERDA: seguir haciendo todas las buenas prácticas que se indicaban en el ejercicio anterior.
 
